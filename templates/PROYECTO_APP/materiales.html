@@ -1,0 +1,40 @@
+{% extends 'PROYECTO_APP/base.html' %}
+    {% block content %}
+
+      <div class="w3-col l6 m6 s12">
+        <div class="w3-white w3-padding-large w3-card-2 w3-round">
+          <h1>Lista de materiales</h1>
+          <a href="{% url 'nuevo_material' %}" class="w3-btn w3-blue w3-round w3-margin-bottom"><i class="fa fa-plus"></i> Nuevo Material</a>
+          <div class="w3-round">
+            <table class="w3-table w3-hoverable w3-centered w3-striped w3-round">
+              <thead class="w3-round">
+                <tr class="w3-blue">
+                  <th>Codigo</th>
+                  <th>Nombre</th>
+                  <th>Unidad</th>
+                  <th>Precio</th>
+                  <th>Editar</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for material in materiales %}
+                  <tr>
+                    <td>{{ material.id }}</td>
+                    <td>{{ material.nombre }}</td>
+                    <td>{{ material.unidad }}</td>
+                    <td>{{ material.precio }}</td>
+                    <td>
+                      <a href="{% url 'material_edit' pk=material.pk %}"><i class="fa fa-pencil-square-o w3-text-blue"></i></a>
+                      <a href="{% url 'material_delete' pk=material.pk %}"><i class="fa fa-trash-o w3-text-red"></i></a>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+
+    {% endblock %}

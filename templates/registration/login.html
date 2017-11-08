@@ -1,0 +1,32 @@
+{% extends "PROYECTO_APP/base.html" %}
+
+{% block content %}
+    {% if form.errors %}
+      <div class="w3-red w3-padding">
+          <p>Your username and password didn't match. Please try again.</p>
+      </div>
+
+    {% endif %}
+    <center>
+    </center>
+    <div class="w3-col l3 m3 s12 col-lg-offset-2">
+      <div class="w3-white w3-round w3-padding w3-card-2">
+        <center>
+          <form method="post" class="misinputs" action="{% url 'login' %}">
+              {% csrf_token %}
+              {{ form.username.label_tag }}
+              {{ form.username }}
+
+              {{ form.password.label_tag }}
+              {{ form.password }}
+
+
+              <input type="submit" class="w3-btn w3-blue w3-round w3-margin-top" value="Iniciar sesión" />
+              <input type="hidden" name="next" value="{{ next }}" />
+          </form>
+        </center>
+
+      </div>
+    </div>
+
+{% endblock %}

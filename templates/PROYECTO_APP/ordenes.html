@@ -1,0 +1,38 @@
+{% extends 'PROYECTO_APP/base.html' %}
+    {% block content %}
+
+      <div class="w3-col l6 m6 s12">
+        <div class="w3-white w3-padding-large w3-card-2 w3-round">
+          <h1>Lista de Ordenes</h1>
+          <a href="{% url 'orden_nueva' %}" class="w3-btn w3-blue w3-round w3-margin-bottom"><i class="fa fa-plus"></i> Nueva Orden</a>
+          <div class="w3-round">
+            <table class="w3-table w3-hoverable w3-centered w3-striped w3-round">
+              <thead class="w3-round">
+                <tr class="w3-blue">
+                  <th>Codigo</th>
+                  <th>Fecha</th>
+                  <th>Encargado</th>
+                  <th>Editar</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for orden in ordenes %}
+                  <tr>
+                    <td>{{ orden.id }}</td>
+                    <td>{{ orden.fecha }}</td>
+                    <td>{{ orden.encargado }}</td>
+                    <td>
+                      <a href="{% url 'orden_edit' pk=orden.pk %}"><i class="fa fa-pencil-square-o w3-text-blue"></i></a>
+                      <a href="{% url 'orden_delete' pk=orden.pk %}"><i class="fa fa-trash-o w3-text-red"></i></a>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+
+    {% endblock %}

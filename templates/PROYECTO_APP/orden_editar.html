@@ -1,0 +1,15 @@
+{% extends 'PROYECTO_APP/base.html' %}
+    {% block content %}
+    <div class="w3-col col-lg-6 col-md-6 col-xs-12 col-sm-12">
+      <div class="w3-white w3-padding-large w3-card-2 w3-round">
+        <h1>Nueva orden</h1>
+        <form method="POST" class="post-form misinputs">{% csrf_token %}
+
+            {{ formulario.as_p }}
+            <button type="submit" class="w3-btn w3-round w3-blue"><i class="fa fa-floppy-o"></i> Guardar</button>
+        </form>
+      </div>
+    </div>
+
+
+    {% endblock %}

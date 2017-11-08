@@ -1,0 +1,14 @@
+html, body, div
+{
+  font-family: "Roboto", sans-serif
+}
+.misinputs input, select
+{
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  color: black;
+  border: 1px solid #BDBDBD;
+  outline: none;
+  padding: 5px;
+  width: 100%;
+}
